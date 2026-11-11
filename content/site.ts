@@ -49,6 +49,8 @@ export const site = {
     label: "AI Practitioner · Reentry Technologist · Los Angeles",
     line: "I build AI tools and automations for reentry organizations and small businesses, and I teach people how to use them.",
     button: { label: "Let's connect", href: "#contact" },
+    // File lives in public/; the alt text is what screen readers say for the photo.
+    headshot: { src: "/headshot.png", alt: "Portrait of Lance Gonzalez" },
     // Display order matters: LinkedIn, Email, GitHub, Instagram.
     socials: [
       { label: "LinkedIn", icon: "linkedin", href: linkedin },
@@ -148,12 +150,12 @@ export const site = {
       "I spent nearly two decades incarcerated, and that is where I started facilitating groups. Since coming home I've put that same skill to work in reentry services and in tech. I explain technical ideas in plain language because that's how I learned them.",
     timeline: [
       { date: "Mar 2025", event: "Came home" },
-      { date: "May 2025", event: "Peer support specialist training" },
-      { date: "Dec 2025", event: "Defy Ventures entrepreneurship program" },
-      { date: "Spring 2026", event: "Started at Cal State LA" },
-      { date: "Feb – Sep 2026", event: "The Knowledge House, AI Business Solutions" },
-      { date: "Sep 2026", event: "Next Chapter, AI Builder" },
-      { date: "Nov 2026", event: "AI Tech Corps (The Knowledge House x OptimaNova AI)" },
+      { date: "May 2025", event: "Completed peer support specialist training" },
+      { date: "Dec 2025", event: "Graduated from the Defy Ventures entrepreneurship program" },
+      { date: "Spring 2026", event: "Started Computer Science at Cal State LA" },
+      { date: "Sep 2026", event: "Graduated from The Knowledge House, AI Business Solutions" },
+      { date: "Sep 2026", event: "Joined Next Chapter as an AI Builder" },
+      { date: "Nov 2026", event: "Completed the AI Tech Corps intensive" },
     ] satisfies TimelineItem[],
   },
 

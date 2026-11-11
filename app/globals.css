@@ -188,6 +188,14 @@ body {
     0 0 16px color-mix(in srgb, var(--color-sunset) 60%, transparent);
 }
 
+/* Neon gradient ring around the headshot, with a soft sunset glow. */
+@utility headshot-ring {
+  background-image: linear-gradient(135deg, var(--color-sunset), var(--color-amber), var(--color-neon-purple));
+  box-shadow:
+    0 0 24px color-mix(in srgb, var(--color-sunset) 45%, transparent),
+    0 0 56px color-mix(in srgb, var(--color-neon-purple) 30%, transparent);
+}
+
 /* Respect users who ask their OS for less motion: no lifts, no smooth scroll. */
 @media (prefers-reduced-motion: reduce) {
   html {
