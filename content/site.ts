@@ -170,6 +170,14 @@ export const site = {
 
   path: {
     heading: "My path",
+    // Terminal-style card beside the timeline. Each entry is a command and its output;
+    // the "$" prompt is added by the component.
+    terminal: [
+      { command: "whoami", output: "lance gonzalez" },
+      { command: "cat stack.txt", output: "Next.js · Python · SQL · Postgres · Claude" },
+      { command: "cat focus.txt", output: "AI tools for reentry orgs and small businesses" },
+      { command: "git log -1", output: "the saga continues" },
+    ],
     intro:
       "The transformation took place on the inside. The struggle never let up, but focus, vision, and determination set a path toward redemption and success. That is where I began facilitating groups, turned my life around, and laid the foundation for everything I do today as a reentry technologist, AI practitioner, and speaker and facilitator. What was built in there compounds out here. The saga continues.",
     timeline: [
