@@ -14,7 +14,12 @@ export function MyPath() {
           instead of pushing past the last timeline entry. */}
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_28rem]">
         <div>
-          <p className="max-w-2xl text-lg text-muted">{path.intro}</p>
+          {/* Intro is a list of short paragraphs; space-y-4 puts a gap between them. */}
+          <div className="max-w-2xl space-y-4 text-lg text-muted">
+            {path.intro.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
           {/* An ordered list because the order matters; the left border draws the timeline line. */}
           <ol className="mt-12 ml-1.5 space-y-8 border-l border-neon-purple/50 pl-8">
             {path.timeline.map((item) => (

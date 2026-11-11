@@ -188,8 +188,12 @@ export const site = {
       },
       logMessage: "the saga continues",
     },
-    intro:
-      "The transformation took place on the inside. The struggle never let up, but focus, vision, and determination set a path toward redemption and success. That is where I began facilitating groups, turned my life around, and laid the foundation for everything I do today as a reentry technologist, AI practitioner, and speaker and facilitator. What was built in there compounds out here. The saga continues.",
+    // Three short paragraphs, shown in order.
+    intro: [
+      "The transformation took place on the inside, daydreaming of what could be again on the outside.",
+      "Though the struggle seldom let up — my focus, vision, and sheer determination blazed the trail toward redemption and success. That is where the turning points came, the defining moments landed, and the hard work paid off — turning my life around and laying the foundation for everything I do today as a reentry technologist, AI practitioner, speaker & facilitator.",
+      "Today I am living proof that what gets built in there compounds out here. And still, the saga continues.",
+    ],
     timeline: [
       { date: "Mar 2025", event: "Came home" },
       { date: "May 2025", event: "Completed peer support specialist training" },

@@ -36,3 +36,10 @@ Important decisions only, one entry per milestone.
 **Prompt:** Phase 4: tweaks. Revert the hero skyline; pink-free headshot ring; commit tag as plain Permanent Marker gradient text centered in the nav; nav pills tinted per section with dark-text glowing hover; two-column My Path with a full-height terminal, new terminal text, and a blinking cursor; new contact line; blue LinkedIn button.
 **Why:** Simplify the hero, tie the nav colors to the sections they jump to, and make My Path and Contact feel finished.
 **Result:** Skyline removed with `git revert --no-commit` while keeping the Phase 3 prompt-log entry. Ring pink came from orange blending into purple, so the ring is orange-to-amber and the glow purple only. Commit tag shows from 1024px up because it doesn't fit beside the pills on smaller screens. Dark hover text checked: at least 4.65:1 on every pill color. Terminal stretches via the grid's default row stretch; cursor stays solid with reduced motion. `btn-blue` is a standalone class because Tailwind controls the order of custom classes.
+
+---
+
+**Tool:** Claude Code
+**Prompt:** Phase 5: stylized portrait with a green hover glow on the ring; LA sunset image as the hero background under a navy overlay; commit tag in the hero-name font, neon green (Permanent Marker removed); terminal restyled as a macOS window built from existing site data; My Path intro as three paragraphs.
+**Why:** Give the hero a real sense of place and make the terminal a summary of the whole site, without retyping any facts.
+**Result:** Background is a page-level layer so it reaches behind the sticky nav at every screen width. Overlay stops are in rem and were checked against the real image pixels (worst case: label 7.5:1, name 5.1:1, line 6.8:1, nav pills 6:1); the old hero glow was removed because it lowered that contrast. Terminal output is generated from name, hero, experience, tech strip, projects, and credentials data; only labels (title, prompt, commands, "the saga continues") were added. Terminal column widened to 28rem so it stretches to the left column instead of overrunning it.
