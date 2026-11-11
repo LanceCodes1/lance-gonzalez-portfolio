@@ -65,9 +65,11 @@ export function Hero() {
               sizes="(min-width: 768px) 288px, (min-width: 640px) 208px, 160px"
               // Above the fold, so load it right away instead of lazily.
               loading="eager"
-              // Tall portrait: crop the square near the top (25% down) instead of the center,
-              // then zoom 1.25x around the face so the circle shows head and shoulders.
-              className="origin-[48%_45%] scale-125 object-cover object-[50%_25%]"
+              // Framing (photo is 1024x1536): show the 820px square from x 90-910, y 360-1180 —
+              // a small margin above the hair down through shoulders and upper chest.
+              // object-[50%_35%] picks rows 179-1203; scale-125 zooms that to 820px,
+              // and the origin point decides which 820px stays in view.
+              className="origin-[44%_88%] scale-125 object-cover object-[50%_35%]"
             />
           </div>
         </div>
