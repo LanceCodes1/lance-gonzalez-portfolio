@@ -58,6 +58,21 @@ export const site = {
     ] satisfies SocialLink[],
   },
 
+  // Tools shown in the scrolling strip under the hero, in display order.
+  techStrip: [
+    "Claude",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Python",
+    "SQL",
+    "Postgres",
+    "Prisma",
+    "Zapier",
+    "Vercel",
+    "GitHub",
+  ],
+
   services: {
     heading: "What I can build for you",
     items: [

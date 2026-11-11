@@ -23,6 +23,17 @@
 
   --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono);
+
+  /* Tech strip loop. Slides left by half the track (one full copy of the list), then repeats. */
+  --animate-marquee: marquee 35s linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 /* Smooth scrolling for nav jumps; scroll-padding keeps headings from hiding under the sticky nav. */
@@ -111,6 +122,11 @@ body {
   }
 }
 
+/* Fades the tech strip's left and right edges so items slide in and out softly. */
+@utility marquee-fade {
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
 /* Respect users who ask their OS for less motion: no lifts, no smooth scroll. */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -118,5 +134,9 @@ body {
   }
   .lift:hover {
     transform: none;
+  }
+  /* The strip is stopped and wrapped when motion is reduced, so there's nothing to fade. */
+  .marquee-fade {
+    mask-image: none;
   }
 }

@@ -1,5 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { TechStrip } from "@/components/TechStrip";
 import { Services } from "@/components/Services";
 import { Projects } from "@/components/Projects";
 import { MyPath } from "@/components/MyPath";
@@ -13,6 +14,7 @@ export default function Home() {
       <Nav />
       <main className="flex-1">
         <Hero />
+        <TechStrip />
         <Services />
         <Projects />
         <MyPath />
