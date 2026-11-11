@@ -49,10 +49,11 @@ export const site = {
     label: "AI Practitioner · Reentry Technologist · Los Angeles",
     line: "I build AI tools and automations for reentry organizations and small businesses, and I teach people how to use them.",
     button: { label: "Let's connect", href: "#contact" },
+    // Display order matters: LinkedIn, Email, GitHub, Instagram.
     socials: [
-      { label: "GitHub", icon: "github", href: "https://github.com/LanceCodes1" },
       { label: "LinkedIn", icon: "linkedin", href: linkedin },
       { label: "Email", icon: "email", href: email },
+      { label: "GitHub", icon: "github", href: "https://github.com/LanceCodes1" },
       { label: "Instagram", icon: "instagram", href: "" },
     ] satisfies SocialLink[],
   },
