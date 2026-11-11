@@ -13,6 +13,17 @@ export type SocialLink = {
 
 export type Service = { title: string; description: string };
 
+// live/repo left as "" are hidden on the page — never fill these with a guessed URL.
+export type Project = {
+  name: string;
+  problem: string;
+  built: string;
+  result: string;
+  tech: string[];
+  live: string;
+  repo: string;
+};
+
 // Shared contact links, defined once so the hero and contact sections can't drift apart.
 const email = "mailto:gonzalezlance01@gmail.com";
 const linkedin = "https://www.linkedin.com/in/lance-o-gonzalez";
@@ -60,5 +71,53 @@ export const site = {
           "Plain-language sessions that get a team using AI tools safely and confidently in their own work.",
       },
     ] satisfies Service[],
+  },
+
+  projects: {
+    heading: "Work I've shipped",
+    // Labels for the parts of each card, kept here so all wording is in one file.
+    labels: { problem: "Problem", built: "What I built", result: "Result", live: "Live site", repo: "Code" },
+    items: [
+      {
+        name: "Haunted Hearse Tour",
+        problem: "AI tour guides tend to make things up.",
+        built:
+          "A full-stack AI app with three AI narrators, an AI tour planner, and saved tours you can share, with guardrails that keep the AI from inventing facts.",
+        result: "Live and open to the public.",
+        tech: ["Next.js", "Prisma", "Neon Postgres", "Vercel"],
+        live: "https://haunted-hearse-tour.vercel.app",
+        repo: "https://github.com/LanceCodes1/haunted-hearse-tour",
+      },
+      {
+        name: "G Boyz Wire Wheels quote automation",
+        problem:
+          "A custom wheel shop gets 100+ quote requests a week and can't answer them all quickly.",
+        built:
+          "A Zapier and AI workflow that drafts quote replies, plus a one-page client proposal. The owner approves every price.",
+        result: "Built and ready. Not yet running in the shop.",
+        tech: ["Zapier", "AI workflow"],
+        live: "",
+        repo: "",
+      },
+      {
+        name: "Prompt Playbook",
+        problem: "People new to AI don't know what to ask it.",
+        built: "A full-stack library of AI prompts for beginners.",
+        result: "Working app with the code public.",
+        tech: ["Next.js", "Prisma", "Neon Postgres"],
+        live: "",
+        repo: "https://github.com/LanceCodes1/prompt-playbook",
+      },
+      {
+        name: "Northstar support-ticket triage",
+        problem: "Support teams lose time sorting and answering routine tickets.",
+        built:
+          "A multi-agent system that triages tickets, with a critic agent that reviews flagged replies. Built by a team of five; I was the Integration Engineer, owning tool calls, policy lookup, ticket intake, and agent handoffs.",
+        result: "Completed team capstone for The Knowledge House.",
+        tech: ["Python", "LangChain"],
+        live: "",
+        repo: "",
+      },
+    ] satisfies Project[],
   },
 };
