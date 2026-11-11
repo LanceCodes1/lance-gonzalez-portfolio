@@ -145,6 +145,26 @@ body {
   }
 }
 
+/* Electric-blue version of btn-neon (used for "Connect on LinkedIn"). It's a full standalone copy,
+   not an add-on, because Tailwind picks the order of custom classes and an add-on might lose.
+   Dark text on this blue is ~6.9:1 contrast. Pair with "lift". */
+@utility btn-blue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  background-image: linear-gradient(90deg, var(--color-neon-blue), color-mix(in srgb, var(--color-neon-blue) 70%, white));
+  box-shadow: 0 0 18px color-mix(in srgb, var(--color-neon-blue) 45%, transparent);
+  &:hover {
+    box-shadow:
+      0 0 24px color-mix(in srgb, var(--color-neon-blue) 75%, transparent),
+      0 0 48px color-mix(in srgb, var(--color-neon-blue) 40%, transparent);
+  }
+}
+
 /* Round icon button. Everything is based on currentColor, so one text-* class sets its whole color. */
 @utility icon-btn {
   display: inline-flex;

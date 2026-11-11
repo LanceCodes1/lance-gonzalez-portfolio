@@ -238,7 +238,7 @@ export const site = {
 
   contact: {
     heading: "Let's build something impactful",
-    line: "Have an idea or a problem AI could help with? Let's talk about it.",
+    line: "Got an idea, or a problem that keeps eating your week? Bring it to me and let's build the fix.",
     buttons: [
       { label: "Email me", href: email },
       { label: "Connect on LinkedIn", href: linkedin },
