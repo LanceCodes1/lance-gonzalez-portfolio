@@ -1,4 +1,5 @@
 import { site } from "@/content/site";
+import { Logo } from "@/components/Logo";
 
 // Top bar that stays visible while scrolling; links jump to section ids on the same page.
 export function Nav() {
@@ -6,18 +7,22 @@ export function Nav() {
     // Semi-transparent background + backdrop-blur lets content softly show through as it scrolls under.
     <header className="sticky top-0 z-20 border-b border-line/70 bg-ink/70 backdrop-blur-md">
       <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-8 gap-y-3 px-4 py-4 sm:px-6">
-        <a href="#top" className="text-sunset-gradient text-lg font-bold tracking-tight">
-          {site.name}
-        </a>
+        <div className="flex items-center gap-3">
+          {/* The monogram is the home link; aria-label gives it a name since the SVG has no text. */}
+          <a href="#top" aria-label={site.name} className="rounded-xl">
+            <Logo className="h-9 w-9" />
+          </a>
+          {/* Code-style tag in the mono font; "hidden sm:inline-block" shows it only from small tablets up. */}
+          <code className="hidden rounded-md border border-line bg-surface/80 px-2 py-1 font-mono text-xs text-muted sm:inline-block">
+            {site.navTag}
+          </code>
+        </div>
         {/* flex-wrap lets the links drop to a second line on narrow phones instead of overflowing. */}
-        <ul className="flex flex-wrap gap-x-2 gap-y-1 text-sm text-muted">
+        <ul className="flex flex-wrap gap-2 text-sm text-muted">
           {site.nav.map((link) => (
             <li key={link.href}>
-              {/* Soft pill highlight on hover: a faint rounded background behind the link. */}
-              <a
-                href={link.href}
-                className="block rounded-full px-3 py-1.5 transition-colors hover:bg-white/10 hover:text-text"
-              >
+              {/* Pill with a soft glow that lifts on hover (styles in globals.css). */}
+              <a href={link.href} className="nav-pill lift">
                 {link.label}
               </a>
             </li>

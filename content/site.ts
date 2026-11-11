@@ -46,6 +46,9 @@ export const site = {
     description: heroLine,
   },
 
+  // Code-style tag shown next to the LG monogram in the nav (hidden on narrow phones).
+  navTag: 'git commit -m "the saga continues"',
+
   // Each href points at a section id on the same page.
   nav: [
     { label: "Services", href: "#services" },
