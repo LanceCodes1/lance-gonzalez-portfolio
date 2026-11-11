@@ -24,6 +24,9 @@ export type Project = {
   repo: string;
 };
 
+// Dates are display text exactly as Lance wrote them, not parsed dates.
+export type TimelineItem = { date: string; event: string };
+
 // Shared contact links, defined once so the hero and contact sections can't drift apart.
 const email = "mailto:gonzalezlance01@gmail.com";
 const linkedin = "https://www.linkedin.com/in/lance-o-gonzalez";
@@ -119,5 +122,20 @@ export const site = {
         repo: "",
       },
     ] satisfies Project[],
+  },
+
+  path: {
+    heading: "My path",
+    intro:
+      "I spent nearly two decades incarcerated, and that is where I started facilitating groups. Since coming home I've put that same skill to work in reentry services and in tech. I explain technical ideas in plain language because that's how I learned them.",
+    timeline: [
+      { date: "Mar 2025", event: "Came home" },
+      { date: "May 2025", event: "Peer support specialist training" },
+      { date: "Dec 2025", event: "Defy Ventures entrepreneurship program" },
+      { date: "Spring 2026", event: "Started at Cal State LA" },
+      { date: "Feb – Sep 2026", event: "The Knowledge House, AI Business Solutions" },
+      { date: "Sep 2026", event: "Next Chapter, AI Builder" },
+      { date: "Nov 2026", event: "AI Tech Corps (The Knowledge House x OptimaNova AI)" },
+    ] satisfies TimelineItem[],
   },
 };
