@@ -110,20 +110,19 @@ body {
   font-family: var(--font-permanent-marker), cursive;
 }
 
-/* Soft sunset behind the hero: an orange glow fading into purple. Low opacity keeps text readable. */
-@utility hero-glow {
-  background:
-    radial-gradient(
-      ellipse 55% 55% at 25% 30%,
-      color-mix(in srgb, var(--color-sunset) 30%, transparent),
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 60% 60% at 75% 65%,
-      color-mix(in srgb, var(--color-neon-purple) 28%, transparent),
-      transparent 70%
-    );
-  filter: blur(40px);
+/* Navy overlay on the hero background image (components/HeroBackdrop.tsx).
+   Light behind the nav so the skyline shows, then dark enough by the hero text that every text color
+   passes contrast even over the brightest lit windows (checked against the real image pixels:
+   amber label >= 7.5:1, orange name >= 5:1, muted line >= 6.8:1). Solid page color by 35rem. */
+@utility hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--color-ink) 15%, transparent) 0,
+    color-mix(in srgb, var(--color-ink) 35%, transparent) 4.5rem,
+    color-mix(in srgb, var(--color-ink) 80%, transparent) 9rem,
+    color-mix(in srgb, var(--color-ink) 93%, transparent) 22rem,
+    var(--color-ink) 35rem
+  );
 }
 
 /* Main call-to-action: sunset gradient fill with a neon glow that brightens on hover.
@@ -278,12 +277,18 @@ body {
 }
 
 /* Neon gradient ring around the headshot, with a soft sunset glow. */
-/* Ring is orange-to-amber only. The glow outside it is purple only, so the two never blend into pink. */
+/* Ring is orange-to-amber only. The glow outside it is purple only, so the two never blend into pink.
+   Hover: a bright neon green glow, the same "pop" as the Let's connect button. Pair with "lift". */
 @utility headshot-ring {
   background-image: linear-gradient(135deg, var(--color-sunset), var(--color-amber));
   box-shadow:
     0 0 28px color-mix(in srgb, var(--color-neon-purple) 45%, transparent),
     0 0 64px color-mix(in srgb, var(--color-neon-purple) 25%, transparent);
+  &:hover {
+    box-shadow:
+      0 0 24px color-mix(in srgb, var(--color-neon-green) 75%, transparent),
+      0 0 56px color-mix(in srgb, var(--color-neon-green) 40%, transparent);
+  }
 }
 
 /* Respect users who ask their OS for less motion: no lifts, no smooth scroll. */

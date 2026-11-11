@@ -65,7 +65,8 @@ export const site = {
     line: heroLine,
     button: { label: "Let's connect", href: "#contact" },
     // File lives in public/; the alt text is what screen readers say for the photo.
-    headshot: { src: "/headshot.png", alt: "Portrait of Lance Gonzalez" },
+    // headshot.png (the photo) stays in public/ unused, kept for later.
+    headshot: { src: "/headshot-stylized.png", alt: "Portrait of Lance Gonzalez" },
     // Display order matters: LinkedIn, Email, GitHub, Instagram.
     socials: [
       { label: "LinkedIn", icon: "linkedin", href: linkedin },
