@@ -22,8 +22,6 @@
   --color-neon-pink: #ff4d8d;
   /* Neon green: glows, borders, and decorative dots only — never text. */
   --color-neon-green: #39ff88;
-  /* Dark purple for the hero's skyline silhouette. Decorative only. */
-  --color-dusk: #1b1140;
 
   --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono);

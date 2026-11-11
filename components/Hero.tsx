@@ -2,7 +2,6 @@ import Image from "next/image";
 import { site, type SocialLink } from "@/content/site";
 import { Icon } from "@/components/Icons";
 import { ExternalLink } from "@/components/ExternalLink";
-import { HeroScene } from "@/components/HeroScene";
 
 // Each social button gets its own neon color. The icon-btn style uses currentColor,
 // so setting the text color here also colors the border, tint, and glow.
@@ -24,12 +23,9 @@ export function Hero() {
     <section id="top" className="relative isolate overflow-hidden">
       {/* Decorative sunset glow; aria-hidden so screen readers skip it. */}
       <div aria-hidden="true" className="hero-glow absolute inset-0 -z-10" />
-      {/* Skyline silhouette along the bottom edge; comes after the glow so it paints on top of it. */}
-      <HeroScene />
 
-      {/* Phones: photo stacked above the text. Wider screens: text left, photo right.
-          Extra bottom padding leaves room for the skyline so it doesn't sit behind the buttons. */}
-      <div className="mx-auto flex max-w-5xl flex-col-reverse gap-10 px-4 pt-16 pb-36 sm:px-6 sm:pt-24 sm:pb-44 md:flex-row md:items-center md:justify-between">
+      {/* Phones: photo stacked above the text. Wider screens: text left, photo right. */}
+      <div className="mx-auto flex max-w-5xl flex-col-reverse gap-10 px-4 py-16 sm:px-6 sm:py-24 md:flex-row md:items-center md:justify-between">
         <div className="md:max-w-xl">
           <p className="text-sm font-medium tracking-wide text-amber">{hero.label}</p>
           <h1 className="text-sunset-gradient mt-4 text-5xl font-extrabold tracking-tight sm:text-7xl">
