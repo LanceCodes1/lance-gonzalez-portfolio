@@ -1,15 +1,27 @@
 @import "tailwindcss";
 
-/* Phase 1: one simple dark palette. The full visual theme comes in a later phase. */
-:root {
-  --background: #09090b;
-  --foreground: #f4f4f5;
-}
+/*
+  Theme tokens: "LA sunset at night." Defined once here; Tailwind turns each
+  --color-* into utilities like bg-surface, text-sunset, border-neon-blue.
+  Dark only, by design — there is no light mode.
+*/
+@theme {
+  --color-ink: #080a18; /* page background, near-black navy */
+  --color-surface: #10132a; /* cards and raised panels */
+  --color-text: #eef0fb; /* body text, ~17:1 contrast on ink */
+  --color-muted: #b4b8d4; /* secondary text, ~10:1 on ink, ~9:1 on surface */
+  --color-line: #262b4d; /* thin borders */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  /* Lead colors */
+  --color-sunset: #ff7a18;
+  --color-amber: #ffb627;
+  /* Support colors. Purple is only ~4.3:1 on surface, so it's used for glows/borders, never body text. */
+  --color-neon-purple: #8b5cf6;
+  --color-neon-blue: #2d9cff;
+  /* Small accent only */
+  --color-neon-pink: #ff4d8d;
+
+  --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
@@ -20,7 +32,43 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: var(--color-ink);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+/* One clearly visible keyboard focus ring for every link and button on the site. */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Orange-to-amber gradient text, used for the name in the nav and hero. */
+@utility text-sunset-gradient {
+  background-image: linear-gradient(90deg, var(--color-sunset), var(--color-amber));
+  background-clip: text;
+  color: transparent;
+}
+
+/* Shared hover lift. Kept in one place so reduced-motion can turn every lift off at once. */
+@utility lift {
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    background-color 200ms ease;
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* Respect users who ask their OS for less motion: no lifts, no smooth scroll. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .lift:hover {
+    transform: none;
+  }
 }
