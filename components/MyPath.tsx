@@ -5,7 +5,7 @@ import { Section } from "@/components/Section";
 export function MyPath() {
   const { path } = site;
   return (
-    <Section id="path" heading={path.heading}>
+    <Section id="path" heading={path.heading} glow={["amber", "pink"]}>
       <p className="max-w-2xl text-lg text-muted">{path.intro}</p>
       {/* An ordered list because the order matters; the left border draws the timeline line. */}
       <ol className="mt-12 ml-1.5 space-y-8 border-l border-neon-purple/50 pl-8">

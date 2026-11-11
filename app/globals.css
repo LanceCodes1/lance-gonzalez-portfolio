@@ -20,6 +20,8 @@
   --color-neon-blue: #2d9cff;
   /* Small accent only */
   --color-neon-pink: #ff4d8d;
+  /* Neon green: glows, borders, and decorative dots only — never text. */
+  --color-neon-green: #39ff88;
 
   --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono);
@@ -141,17 +143,43 @@ body {
   mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
 }
 
-/* Service and project cards: surface color, thin border, sunset/purple glow on hover. Pair with "lift". */
+/* Service and project cards: surface color, thin border, colored glow on hover. Pair with "lift".
+   --card-glow is set per card (see components/glow.ts) so cards cycle orange, green, purple, blue. */
 @utility card {
   border-radius: 0.875rem;
   border: 1px solid var(--color-line);
   background-color: var(--color-surface);
   &:hover {
-    border-color: color-mix(in srgb, var(--color-sunset) 55%, transparent);
+    border-color: color-mix(in srgb, var(--card-glow, var(--color-sunset)) 60%, transparent);
     box-shadow:
-      0 0 24px color-mix(in srgb, var(--color-sunset) 22%, transparent),
-      0 0 48px color-mix(in srgb, var(--color-neon-purple) 18%, transparent);
+      0 0 24px color-mix(in srgb, var(--card-glow, var(--color-sunset)) 28%, transparent),
+      0 0 52px color-mix(in srgb, var(--card-glow, var(--color-sunset)) 14%, transparent);
   }
+}
+
+/* Soft background color behind each section so the sunset continues down the page.
+   Two faint radial glows (left and right) from --glow-a / --glow-b, set in components/Section.tsx.
+   Each fades fully to transparent before the section edge, so there are no hard seams between sections. */
+@utility section-glow {
+  background:
+    radial-gradient(
+      ellipse 42% 45% at 12% 45%,
+      color-mix(in srgb, var(--glow-a) 16%, transparent),
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 42% 45% at 88% 55%,
+      color-mix(in srgb, var(--glow-b) 14%, transparent),
+      transparent 100%
+    );
+}
+
+/* Extra glow for the tech strip: soft purple/amber light along its top and bottom edges. */
+@utility strip-glow {
+  border-color: color-mix(in srgb, var(--color-amber) 30%, transparent);
+  box-shadow:
+    0 0 28px color-mix(in srgb, var(--color-neon-purple) 30%, transparent),
+    inset 0 0 24px color-mix(in srgb, var(--color-sunset) 10%, transparent);
 }
 
 /* Short gradient bar under each section heading. */

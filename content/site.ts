@@ -13,7 +13,8 @@ export type SocialLink = {
 
 export type Service = { title: string; description: string };
 
-// live/repo left as "" are hidden on the page — never fill these with a guessed URL.
+// live/repo/proposal left as "" are hidden on the page — never fill these with a guessed URL.
+// proposal is optional: a path to a file in public/, e.g. "/gboyz-proposal.pdf".
 export type Project = {
   name: string;
   problem: string;
@@ -22,6 +23,7 @@ export type Project = {
   tech: string[];
   live: string;
   repo: string;
+  proposal?: string;
 };
 
 // Dates are display text exactly as Lance wrote them, not parsed dates.
@@ -112,7 +114,14 @@ export const site = {
   projects: {
     heading: "Work I've shipped",
     // Labels for the parts of each card, kept here so all wording is in one file.
-    labels: { problem: "Problem", built: "What I built", result: "Result", live: "Live site", repo: "Code" },
+    labels: {
+      problem: "Problem",
+      built: "What I built",
+      result: "Result",
+      live: "Live site",
+      repo: "Code",
+      proposal: "View proposal",
+    },
     items: [
       {
         name: "Haunted Hearse Tour",
@@ -134,6 +143,8 @@ export const site = {
         tech: ["Zapier", "AI workflow"],
         live: "",
         repo: "",
+        // Stays "" until public/gboyz-proposal.pdf is added; then set to "/gboyz-proposal.pdf".
+        proposal: "",
       },
       {
         name: "Prompt Playbook",

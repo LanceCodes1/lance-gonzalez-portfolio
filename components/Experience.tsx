@@ -5,7 +5,7 @@ import { Section } from "@/components/Section";
 export function Experience() {
   const { experience } = site;
   return (
-    <Section id="experience" heading={experience.heading}>
+    <Section id="experience" heading={experience.heading} glow={["purple"]}>
       <div className="grid gap-12 md:grid-cols-2">
         <div>
           <h3 className="text-xl font-semibold">{experience.rolesHeading}</h3>

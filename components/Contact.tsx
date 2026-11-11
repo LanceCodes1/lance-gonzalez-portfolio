@@ -6,7 +6,7 @@ import { ExternalLink } from "@/components/ExternalLink";
 export function Contact() {
   const { contact } = site;
   return (
-    <Section id="contact" heading={contact.heading}>
+    <Section id="contact" heading={contact.heading} glow={["orange", "purple"]}>
       <p className="max-w-2xl text-lg text-muted">{contact.line}</p>
       <div className="mt-10 flex flex-wrap gap-4">
         {/* Same gradient + glow + lift as the hero's "Let's connect" button. */}
