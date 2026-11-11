@@ -208,11 +208,18 @@ body {
     );
 }
 
-/* Terminal card: darker than the page, with a faint green border and glow like an old CRT screen. */
+/* macOS-style terminal window: dark screen, neutral border, soft drop shadow like a real window.
+   Hover: a clear purple + blue glow. Pair with "lift" for the raise. */
 @utility terminal {
   background-color: color-mix(in srgb, var(--color-ink) 85%, black);
-  border-color: color-mix(in srgb, var(--color-neon-green) 30%, transparent);
-  box-shadow: 0 0 28px color-mix(in srgb, var(--color-neon-green) 14%, transparent);
+  border-color: var(--color-line);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.45);
+  &:hover {
+    border-color: color-mix(in srgb, var(--color-neon-purple) 60%, transparent);
+    box-shadow:
+      0 0 28px color-mix(in srgb, var(--color-neon-purple) 50%, transparent),
+      0 0 56px color-mix(in srgb, var(--color-neon-blue) 30%, transparent);
+  }
 }
 
 /* Extra glow for the tech strip: soft purple/amber light along its top and bottom edges. */

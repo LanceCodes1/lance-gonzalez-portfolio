@@ -171,27 +171,23 @@ export const site = {
 
   path: {
     heading: "My path",
-    // Terminal-style card beside the timeline. Each entry is a command and its output lines;
-    // the "$" prompt and the blinking cursor are added by the component. Spaces inside a line are kept.
-    terminal: [
-      { command: "whoami", output: ["lance gonzalez"] },
-      { command: "cat location.txt", output: ["Los Angeles, CA"] },
-      { command: "cat role.txt", output: ["AI practitioner · reentry technologist · facilitator"] },
-      { command: "cat now.txt", output: ["AI Builder @ Next Chapter"] },
-      { command: "cat stack.txt", output: ["Next.js · TypeScript · Python · SQL · Postgres · Claude"] },
-      {
-        command: "ls projects/",
-        output: [
-          "haunted-hearse-tour  gboyz-quote-automation",
-          "prompt-playbook      northstar-triage",
-        ],
+    // macOS-style terminal beside the timeline. Only its labels live here; every output line is
+    // read from data elsewhere in this file (name, hero, experience, tech strip, projects, credentials),
+    // so nothing is typed twice.
+    terminal: {
+      title: "lance — zsh",
+      prompt: "lance@LA ~ %",
+      commands: {
+        whoami: "whoami",
+        focus: "cat focus.txt",
+        experience: "ls experience/",
+        stack: "cat stack.txt",
+        projects: "ls projects/",
+        credentials: "cat credentials.txt",
+        log: "git log -1",
       },
-      {
-        command: "cat services.txt",
-        output: ["AI automations", "Websites and landing pages", "AI workshops and training"],
-      },
-      { command: "git log -1", output: ["the saga continues"] },
-    ],
+      logMessage: "the saga continues",
+    },
     intro:
       "The transformation took place on the inside. The struggle never let up, but focus, vision, and determination set a path toward redemption and success. That is where I began facilitating groups, turned my life around, and laid the foundation for everything I do today as a reentry technologist, AI practitioner, and speaker and facilitator. What was built in there compounds out here. The saga continues.",
     timeline: [

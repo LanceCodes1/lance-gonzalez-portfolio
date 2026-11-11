@@ -10,8 +10,9 @@ export function MyPath() {
     <Section id="path" heading={path.heading} glow={["amber", "pink"]}>
       {/* Grid items stretch to the row's height by default, so the terminal's column is exactly as tall
           as the intro + timeline: top-aligned with the intro, ending level with the last entry.
-          26rem keeps the widest terminal line ("ls projects/") on one line. */}
-      <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_26rem]">
+          28rem keeps the terminal a bit shorter than the left column, so it stretches to match
+          instead of pushing past the last timeline entry. */}
+      <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_28rem]">
         <div>
           <p className="max-w-2xl text-lg text-muted">{path.intro}</p>
           {/* An ordered list because the order matters; the left border draws the timeline line. */}
