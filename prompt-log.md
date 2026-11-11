@@ -22,3 +22,10 @@ Important decisions only, one entry per milestone.
 **Prompt:** Phase 2: dark-only "LA sunset at night" neon theme with CSS and Tailwind only. Tokens in globals.css, restyled nav, hero with glow, gradient name, neon button, colored social icons and headshot, looping tech strip, glowing cards, timeline and buttons, new timeline copy, reduced-motion and focus support.
 **Why:** Give the site a distinct visual identity while keeping text readable and the page accessible.
 **Result:** Colors live once as `@theme` tokens; shared looks (`btn-neon`, `icon-btn`, `card`, `tag`, `btn-chip`, `lift`, etc.) are `@utility` classes in globals.css. Contrast checked: purple is below 4.5:1 on cards, so it is used only for glows, borders, and icons, never text. Reduced motion stops the strip (it wraps instead) and removes all lifts; every link and button gets an amber focus ring. Headshot renamed to lowercase `headshot.png` so it works on Vercel, and cropped near the top with a slight zoom so the circle frames head and shoulders.
+
+---
+
+**Tool:** Claude Code
+**Prompt:** Phase 3: polish. New hero/path/contact copy, footer, page metadata with Open Graph; LG monogram nav + mono code tag + tab icon; headshot re-crop; neon green token, per-section background glows, cycling card glow colors, brighter tech strip, tighter spacing, linked project titles, optional proposal link; terminal card in My Path; LA skyline scene in the hero. CSS, copy, and small components only.
+**Why:** Carry the sunset color down the whole page and add personality (monogram, terminal, skyline) without new libraries or JavaScript animation.
+**Result:** All new copy in `content/site.ts`. LG monogram is drawn as SVG strokes and reused as `app/icon.svg` (starter favicon removed). Headshot crop was previewed as an exact 820px window before writing the CSS. Glow colors are passed as CSS variables (`components/glow.ts`) so one `card` / `section-glow` style serves every color. `gboyz-proposal.pdf` isn't in `public/` yet, so the proposal link stays `""` and hidden. Skyline is drawn from small data lists in `components/HeroScene.tsx` and committed alone so it can be reverted in one step.
