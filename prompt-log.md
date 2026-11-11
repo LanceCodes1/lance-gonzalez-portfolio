@@ -43,3 +43,10 @@ Important decisions only, one entry per milestone.
 **Prompt:** Phase 5: stylized portrait with a green hover glow on the ring; LA sunset image as the hero background under a navy overlay; commit tag in the hero-name font, neon green (Permanent Marker removed); terminal restyled as a macOS window built from existing site data; My Path intro as three paragraphs.
 **Why:** Give the hero a real sense of place and make the terminal a summary of the whole site, without retyping any facts.
 **Result:** Background is a page-level layer so it reaches behind the sticky nav at every screen width. Overlay stops are in rem and were checked against the real image pixels (worst case: label 7.5:1, name 5.1:1, line 6.8:1, nav pills 6:1); the old hero glow was removed because it lowered that contrast. Terminal output is generated from name, hero, experience, tech strip, projects, and credentials data; only labels (title, prompt, commands, "the saga continues") were added. Terminal column widened to 28rem so it stretches to the left column instead of overrunning it.
+
+---
+
+**Tool:** Claude Code
+**Prompt:** Phase 6: phone fixes (one-row scrolling nav ~56px, centered portrait, shorter terminal) and new contact heading and line. Desktop layout must not change.
+**Why:** The nav wrapped to multiple rows and the terminal repeated the Experience section on small screens.
+**Result:** Phones are under 640px. Every phone style is a base class with an `sm:` class restoring the previous look, so 640px and up is unchanged. The pill row scrolls sideways and has a little inner padding so focus rings aren't clipped. Terminal blocks carry a `phone: false` flag to hide experience and credentials on phones.

@@ -238,8 +238,8 @@ export const site = {
   },
 
   contact: {
-    heading: "Let's build something impactful",
-    line: "Got an idea, or a problem that keeps eating your week? Bring it to me and let's build the fix.",
+    heading: "Let's start the conversation",
+    line: "Bring me the idea or the problem you want to tackle. We'll strategize today and build something impactful tomorrow.",
     buttons: [
       { label: "Email me", href: email },
       { label: "Connect on LinkedIn", href: linkedin },
