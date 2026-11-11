@@ -92,6 +92,10 @@ body {
   display: block;
   border-radius: 9999px;
   padding: 0.375rem 0.875rem;
+  /* Phones (under 640px): tighter pills so the row stays compact (~26px tall). Wider screens unchanged. */
+  @media (width < 40rem) {
+    padding: 0.25rem 0.625rem;
+  }
   color: var(--color-text);
   border: 1px solid color-mix(in srgb, var(--pill, var(--color-amber)) 50%, transparent);
   background-color: color-mix(in srgb, var(--pill, var(--color-amber)) 18%, transparent);

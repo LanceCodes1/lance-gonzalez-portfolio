@@ -11,11 +11,13 @@ export function Terminal() {
   const t = site.path.terminal;
 
   // Each block = one command and the lines it prints, in display order.
-  const blocks: { command: string; lines: React.ReactNode[] }[] = [
+  // phone: false hides a block under 640px (experience and credentials appear in the next section anyway).
+  const blocks: { command: string; lines: React.ReactNode[]; phone?: false }[] = [
     { command: t.commands.whoami, lines: [<Key key="n">{site.name}</Key>, site.hero.label] },
     { command: t.commands.focus, lines: [site.hero.line] },
     {
       command: t.commands.experience,
+      phone: false,
       lines: site.experience.roles.map((r) => (
         <span key={r.title + r.org}>
           <Key>{r.title}</Key>, {r.org} <Dim>({r.dates})</Dim>
@@ -35,7 +37,7 @@ export function Terminal() {
       ],
     },
     { command: t.commands.projects, lines: site.projects.items.map((p) => <Key key={p.name}>{p.name}</Key>) },
-    { command: t.commands.credentials, lines: site.experience.credentials },
+    { command: t.commands.credentials, lines: site.experience.credentials, phone: false },
     { command: t.commands.log, lines: [t.logMessage] },
   ];
 
@@ -59,7 +61,8 @@ export function Terminal() {
         {blocks.map((block, i) => {
           const isLast = i === blocks.length - 1;
           return (
-            <div key={block.command}>
+            // "hidden sm:block" = not shown on phones, shown from 640px up.
+            <div key={block.command} className={block.phone === false ? "hidden sm:block" : undefined}>
               <p>
                 {/* Prompt is decorative and select-none so copying grabs only the command. */}
                 <span aria-hidden="true" className="text-neon-green select-none">

@@ -53,7 +53,8 @@ export function Hero() {
 
         {/* Gradient ring = a round wrapper with a gradient background and a little padding around the photo.
             On hover it lifts and gets a neon green glow (headshot-ring + lift in globals.css). */}
-        <div className="headshot-ring lift shrink-0 self-start rounded-full p-1 md:self-center">
+        {/* self-center: centered horizontally while stacked (phones), vertically beside the text from md up. */}
+        <div className="headshot-ring lift shrink-0 self-center rounded-full p-1">
           {/* "fill" makes the image cover this positioned circle; overflow-hidden clips it round. */}
           <div className="relative h-40 w-40 overflow-hidden rounded-full sm:h-52 sm:w-52 md:h-72 md:w-72">
             <Image
