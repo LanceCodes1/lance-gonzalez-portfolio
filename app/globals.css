@@ -36,6 +36,14 @@
       transform: translateX(-50%);
     }
   }
+
+  /* Terminal cursor: on for half a second, off for half. steps(1) makes it snap, not fade. */
+  --animate-blink: blink 1s steps(1) infinite;
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
 }
 
 /* Smooth scrolling for nav jumps; scroll-padding keeps headings from hiding under the sticky nav. */

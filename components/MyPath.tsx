@@ -3,12 +3,15 @@ import { Section } from "@/components/Section";
 import { Terminal } from "@/components/Terminal";
 
 // Lance's story in his words and a timeline on the left; a terminal-style card on the right.
-// On phones the grid is one column, so the terminal stacks below the timeline.
+// Below 1024px the grid is one column, so the terminal stacks below the timeline.
 export function MyPath() {
   const { path } = site;
   return (
     <Section id="path" heading={path.heading} glow={["amber", "pink"]}>
-      <div className="grid gap-12 md:grid-cols-[minmax(0,1fr)_18rem] lg:grid-cols-[minmax(0,1fr)_22rem]">
+      {/* Grid items stretch to the row's height by default, so the terminal's column is exactly as tall
+          as the intro + timeline: top-aligned with the intro, ending level with the last entry.
+          26rem keeps the widest terminal line ("ls projects/") on one line. */}
+      <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_26rem]">
         <div>
           <p className="max-w-2xl text-lg text-muted">{path.intro}</p>
           {/* An ordered list because the order matters; the left border draws the timeline line. */}
@@ -26,10 +29,7 @@ export function MyPath() {
             ))}
           </ol>
         </div>
-        {/* self-start keeps the card its natural height instead of stretching to the timeline's. */}
-        <div className="self-start">
-          <Terminal />
-        </div>
+        <Terminal />
       </div>
     </Section>
   );
