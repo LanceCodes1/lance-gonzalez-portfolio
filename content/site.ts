@@ -33,8 +33,18 @@ export type Role = { title: string; org: string; dates: string };
 const email = "mailto:gonzalezlance01@gmail.com";
 const linkedin = "https://www.linkedin.com/in/lance-o-gonzalez";
 
+// Hero line is reused as the page description for search results and link previews.
+const heroLine =
+  "AI tools and automations for reentry organizations and small businesses. Built by me. Taught in plain language.";
+
 export const site = {
   name: "Lance Gonzalez",
+
+  // Page metadata: browser tab, search results, and the preview card when the link is shared.
+  meta: {
+    title: "Lance Gonzalez",
+    description: heroLine,
+  },
 
   // Each href points at a section id on the same page.
   nav: [
@@ -47,7 +57,7 @@ export const site = {
 
   hero: {
     label: "AI Practitioner · Reentry Technologist · Los Angeles",
-    line: "I build AI tools and automations for reentry organizations and small businesses, and I teach people how to use them.",
+    line: heroLine,
     button: { label: "Let's connect", href: "#contact" },
     // File lives in public/; the alt text is what screen readers say for the photo.
     headshot: { src: "/headshot.png", alt: "Portrait of Lance Gonzalez" },
@@ -147,12 +157,15 @@ export const site = {
   path: {
     heading: "My path",
     intro:
-      "I spent nearly two decades incarcerated, and that is where I started facilitating groups. Since coming home I've put that same skill to work in reentry services and in tech. I explain technical ideas in plain language because that's how I learned them.",
+      "The transformation took place on the inside. The struggle never let up, but focus, vision, and determination set a path toward redemption and success. That is where I began facilitating groups, turned my life around, and laid the foundation for everything I do today as a reentry technologist, AI practitioner, and speaker and facilitator. What was built in there compounds out here. The saga continues.",
     timeline: [
       { date: "Mar 2025", event: "Came home" },
       { date: "May 2025", event: "Completed peer support specialist training" },
-      { date: "Dec 2025", event: "Graduated from the Defy Ventures entrepreneurship program" },
-      { date: "Spring 2026", event: "Started Computer Science at Cal State LA" },
+      { date: "Dec 2025", event: "Graduated from the Defy Ventures Entrepreneur Bootcamp" },
+      {
+        date: "Spring 2026",
+        event: "Started at Cal State LA, studying Computer Science and Communications",
+      },
       { date: "Sep 2026", event: "Graduated from The Knowledge House, AI Business Solutions" },
       { date: "Sep 2026", event: "Joined Next Chapter as an AI Builder" },
       { date: "Nov 2026", event: "Completed the AI Tech Corps intensive" },
@@ -183,17 +196,22 @@ export const site = {
       "IBM Generative AI Engineering certificate",
       "AI Tech Corps (The Knowledge House x OptimaNova AI)",
       "Firme Coding certifications: Logic & Critical Thinking, Intro to SwiftUI",
-      "Defy Ventures entrepreneurship program",
-      "Computer Science, Cal State LA (in progress)",
+      "Defy Ventures Entrepreneur Bootcamp",
+      "Computer Science and Communications, Cal State LA (in progress)",
     ],
   },
 
   contact: {
-    heading: "Let's build something useful",
-    line: "If you run a small business or nonprofit and want to put AI to work, send me a message.",
+    heading: "Let's build something impactful",
+    line: "Have an idea or a problem AI could help with? Let's talk about it.",
     buttons: [
       { label: "Email me", href: email },
       { label: "Connect on LinkedIn", href: linkedin },
     ],
+  },
+
+  footer: {
+    tagline: "Reason. Reframe. Regroup. Repeat.",
+    copyright: "© 2026 Lance Gonzalez. All rights reserved.",
   },
 };

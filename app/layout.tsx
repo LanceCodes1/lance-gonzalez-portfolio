@@ -13,9 +13,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Browser tab title pulled from the content file; the default boilerplate title/description were removed.
+// Title and description come from the content file. openGraph is what sites like
+// LinkedIn and iMessage read to build the preview card when someone shares the link.
 export const metadata: Metadata = {
-  title: site.name,
+  title: site.meta.title,
+  description: site.meta.description,
+  openGraph: {
+    title: site.meta.title,
+    description: site.meta.description,
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

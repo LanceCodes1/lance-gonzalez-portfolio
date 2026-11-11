@@ -6,6 +6,7 @@ import { Projects } from "@/components/Projects";
 import { MyPath } from "@/components/MyPath";
 import { Experience } from "@/components/Experience";
 import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 
 // The whole site is one page; each section is its own component in components/.
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <Experience />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }
