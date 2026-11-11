@@ -77,17 +77,29 @@ body {
 }
 
 /* Nav link pill: faint outline at rest; on hover it brightens with a soft amber glow. Pair with "lift". */
+/* Nav link pill tinted with its section's color (--pill, set per link in components/Nav.tsx).
+   Hover: the fill goes full color, text turns dark for contrast (>=4.6:1 on every pill color),
+   and an outer glow appears in the same color, like the "Let's connect" button. Pair with "lift". */
 @utility nav-pill {
   display: block;
   border-radius: 9999px;
   padding: 0.375rem 0.875rem;
-  border: 1px solid color-mix(in srgb, var(--color-line) 80%, transparent);
-  background-color: color-mix(in srgb, var(--color-surface) 60%, transparent);
+  color: var(--color-text);
+  border: 1px solid color-mix(in srgb, var(--pill, var(--color-amber)) 50%, transparent);
+  background-color: color-mix(in srgb, var(--pill, var(--color-amber)) 18%, transparent);
   &:hover {
-    color: var(--color-text);
-    border-color: color-mix(in srgb, var(--color-amber) 55%, transparent);
-    box-shadow: 0 0 14px color-mix(in srgb, var(--color-amber) 35%, transparent);
+    color: var(--color-ink);
+    border-color: var(--pill, var(--color-amber));
+    background-color: var(--pill, var(--color-amber));
+    box-shadow:
+      0 0 18px color-mix(in srgb, var(--pill, var(--color-amber)) 60%, transparent),
+      0 0 36px color-mix(in srgb, var(--pill, var(--color-amber)) 30%, transparent);
   }
+}
+
+/* Permanent Marker font (loaded in app/layout.tsx), used for the nav's commit tag. */
+@utility font-marker {
+  font-family: var(--font-permanent-marker), cursive;
 }
 
 /* Soft sunset behind the hero: an orange glow fading into purple. Low opacity keeps text readable. */
@@ -238,11 +250,12 @@ body {
 }
 
 /* Neon gradient ring around the headshot, with a soft sunset glow. */
+/* Ring is orange-to-amber only. The glow outside it is purple only, so the two never blend into pink. */
 @utility headshot-ring {
-  background-image: linear-gradient(135deg, var(--color-sunset), var(--color-amber), var(--color-neon-purple));
+  background-image: linear-gradient(135deg, var(--color-sunset), var(--color-amber));
   box-shadow:
-    0 0 24px color-mix(in srgb, var(--color-sunset) 45%, transparent),
-    0 0 56px color-mix(in srgb, var(--color-neon-purple) 30%, transparent);
+    0 0 28px color-mix(in srgb, var(--color-neon-purple) 45%, transparent),
+    0 0 64px color-mix(in srgb, var(--color-neon-purple) 25%, transparent);
 }
 
 /* Respect users who ask their OS for less motion: no lifts, no smooth scroll. */

@@ -1,28 +1,45 @@
+import type { CSSProperties } from "react";
 import { site } from "@/content/site";
 import { Logo } from "@/components/Logo";
+import { theme, type GlowColor } from "@/components/glow";
+
+// Each nav pill is tinted with the glow color of the section it jumps to.
+const pillColor: Record<string, GlowColor> = {
+  "#services": "blue",
+  "#projects": "green",
+  "#path": "amber",
+  "#experience": "purple",
+  "#contact": "orange",
+};
 
 // Top bar that stays visible while scrolling; links jump to section ids on the same page.
 export function Nav() {
   return (
     // Semi-transparent background + backdrop-blur lets content softly show through as it scrolls under.
     <header className="sticky top-0 z-20 border-b border-line/70 bg-ink/70 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-8 gap-y-3 px-4 py-4 sm:px-6">
-        <div className="flex items-center gap-3">
-          {/* The monogram is the home link; aria-label gives it a name since the SVG has no text. */}
-          <a href="#top" aria-label={site.name} className="rounded-xl">
-            <Logo className="h-9 w-9" />
-          </a>
-          {/* Code-style tag in the mono font; "hidden sm:inline-block" shows it only from small tablets up. */}
-          <code className="hidden rounded-md border border-line bg-surface/80 px-2 py-1 font-mono text-xs text-muted sm:inline-block">
-            {site.navTag}
-          </code>
-        </div>
+      {/* gap-x-6 sets equal spacing on both sides of the tag, which grows (flex-1) to fill the middle. */}
+      <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-4 sm:px-6">
+        {/* The monogram is the home link; aria-label gives it a name since the SVG has no text. */}
+        <a href="#top" aria-label={site.name} className="rounded-xl">
+          <Logo className="h-9 w-9" />
+        </a>
+        {/* Plain gradient text in the marker font, centered in the space between logo and links.
+            Shown only from lg (1024px) up: below that, logo + tag + links don't fit on one line. */}
+        <p className="font-marker hidden flex-1 text-center text-xl whitespace-nowrap lg:block">
+          {/* Gradient on the inner span so it spans just the words, not the whole stretched box.
+              px-1 leaves room for the marker strokes that hang past the letter edges. */}
+          <span className="text-sunset-gradient px-1">{site.navTag}</span>
+        </p>
         {/* flex-wrap lets the links drop to a second line on narrow phones instead of overflowing. */}
-        <ul className="flex flex-wrap gap-2 text-sm text-muted">
+        <ul className="flex flex-wrap gap-2 text-sm">
           {site.nav.map((link) => (
             <li key={link.href}>
-              {/* Pill with a soft glow that lifts on hover (styles in globals.css). */}
-              <a href={link.href} className="nav-pill lift">
+              {/* --pill feeds the nav-pill style in globals.css with this link's color. */}
+              <a
+                href={link.href}
+                className="nav-pill lift"
+                style={{ "--pill": theme[pillColor[link.href] ?? "amber"] } as CSSProperties}
+              >
                 {link.label}
               </a>
             </li>
