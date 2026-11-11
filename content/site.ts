@@ -136,11 +136,11 @@ export const site = {
       {
         name: "G Boyz Wire Wheels quote automation",
         problem:
-          "A custom wheel shop gets 100+ quote requests a week and can't answer them all quickly.",
+          "A custom wheel shop gets 100+ quote requests a week through DMs and calls, and quoting by message takes 10 to 15 minutes of back-and-forth each.",
         built:
-          "A Zapier and AI workflow that drafts quote replies, plus a one-page client proposal. The owner approves every price.",
-        result: "Built and ready. Not yet running in the shop.",
-        tech: ["Zapier", "AI workflow"],
+          "A quote form that feeds a Zapier and AI workflow. It turns each request into a call sheet with starting prices and questions to ask, emails it to the owner with a tap-to-call link, and logs it in a sheet. Code does the math, and the owner sets every final price.",
+        result: "Built and tested with live form submissions. Not yet running in the shop.",
+        tech: ["Zapier", "AI by Zapier", "Python", "Google Sheets"],
         live: "",
         repo: "",
         // Stays "" until public/gboyz-proposal.pdf is added; then set to "/gboyz-proposal.pdf".
@@ -163,7 +163,7 @@ export const site = {
         result: "Completed team capstone for The Knowledge House.",
         tech: ["Python", "LangChain"],
         live: "",
-        repo: "",
+        repo: "https://github.com/LanceCodes1/northstar-triage",
       },
     ] satisfies Project[],
   },
