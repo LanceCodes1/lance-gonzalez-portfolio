@@ -7,19 +7,11 @@ export function Contact() {
   const { contact } = site;
   return (
     <Section id="contact" heading={contact.heading}>
-      <p className="max-w-2xl text-lg text-zinc-300">{contact.line}</p>
-      <div className="mt-8 flex flex-wrap gap-4">
-        {/* First button is solid, the rest outlined, so the main action stands out. */}
-        {contact.buttons.map((b, i) => (
-          <ExternalLink
-            key={b.label}
-            href={b.href}
-            className={
-              i === 0
-                ? "rounded-md bg-white px-5 py-2.5 font-medium text-zinc-950 hover:bg-zinc-200"
-                : "rounded-md border border-zinc-600 px-5 py-2.5 font-medium hover:border-zinc-400"
-            }
-          >
+      <p className="max-w-2xl text-lg text-muted">{contact.line}</p>
+      <div className="mt-10 flex flex-wrap gap-4">
+        {/* Same gradient + glow + lift as the hero's "Let's connect" button. */}
+        {contact.buttons.map((b) => (
+          <ExternalLink key={b.label} href={b.href} className="btn-neon lift">
             {b.label}
           </ExternalLink>
         ))}

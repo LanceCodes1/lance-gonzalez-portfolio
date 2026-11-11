@@ -10,9 +10,11 @@ export function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="mx-auto max-w-4xl border-t border-zinc-800 px-4 py-16">
-      <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{heading}</h2>
-      <div className="mt-8">{children}</div>
+    <section id={id} className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
+      <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{heading}</h2>
+      {/* Decorative gradient underline; aria-hidden since it carries no meaning. */}
+      <span aria-hidden="true" className="heading-bar mt-4" />
+      <div className="mt-10">{children}</div>
     </section>
   );
 }

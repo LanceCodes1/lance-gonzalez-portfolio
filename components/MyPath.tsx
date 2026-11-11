@@ -1,18 +1,23 @@
 import { site } from "@/content/site";
 import { Section } from "@/components/Section";
 
-// Lance's story in his words, then a simple vertical timeline in date order.
+// Lance's story in his words, then a vertical timeline with glowing dots in date order.
 export function MyPath() {
   const { path } = site;
   return (
     <Section id="path" heading={path.heading}>
-      <p className="max-w-2xl text-lg text-zinc-300">{path.intro}</p>
+      <p className="max-w-2xl text-lg text-muted">{path.intro}</p>
       {/* An ordered list because the order matters; the left border draws the timeline line. */}
-      <ol className="mt-10 space-y-6 border-l border-zinc-700 pl-6">
+      <ol className="mt-12 ml-1.5 space-y-8 border-l border-neon-purple/50 pl-8">
         {path.timeline.map((item) => (
-          <li key={item.date + item.event}>
-            <p className="text-sm font-medium text-zinc-400">{item.date}</p>
-            <p className="mt-1">{item.event}</p>
+          <li key={item.date + item.event} className="relative">
+            {/* Dot is pulled left onto the line: 2rem padding + half the dot's width + half the border. */}
+            <span
+              aria-hidden="true"
+              className="timeline-dot absolute top-1 -left-[calc(2rem+0.375rem+0.5px)]"
+            />
+            <p className="text-sm font-semibold text-amber">{item.date}</p>
+            <p className="mt-1 text-lg">{item.event}</p>
           </li>
         ))}
       </ol>
