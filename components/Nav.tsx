@@ -25,10 +25,9 @@ export function Nav() {
         </a>
         {/* Plain gradient text in the marker font, centered in the space between logo and links.
             Shown only from lg (1024px) up: below that, logo + tag + links don't fit on one line. */}
-        <p className="font-marker hidden flex-1 text-center text-xl whitespace-nowrap lg:block">
-          {/* Gradient on the inner span so it spans just the words, not the whole stretched box.
-              px-1 leaves room for the marker strokes that hang past the letter edges. */}
-          <span className="text-sunset-gradient px-1">{site.navTag}</span>
+        {/* Same font and weight as the hero name (Geist, extra bold, tight tracking), in neon green. */}
+        <p className="hidden flex-1 text-center text-xl font-extrabold tracking-tight whitespace-nowrap text-neon-green lg:block">
+          {site.navTag}
         </p>
         {/* flex-wrap lets the links drop to a second line on narrow phones instead of overflowing. */}
         <ul className="flex flex-wrap gap-2 text-sm">

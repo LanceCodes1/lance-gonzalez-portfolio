@@ -20,7 +20,7 @@
   --color-neon-blue: #2d9cff;
   /* Small accent only */
   --color-neon-pink: #ff4d8d;
-  /* Neon green: glows, borders, and decorative dots only — never text. */
+  /* Neon green: glows, borders, dots, and the nav's commit tag (large text, ~14.8:1 on ink). */
   --color-neon-green: #39ff88;
 
   --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
@@ -103,11 +103,6 @@ body {
       0 0 18px color-mix(in srgb, var(--pill, var(--color-amber)) 60%, transparent),
       0 0 36px color-mix(in srgb, var(--pill, var(--color-amber)) 30%, transparent);
   }
-}
-
-/* Permanent Marker font (loaded in app/layout.tsx), used for the nav's commit tag. */
-@utility font-marker {
-  font-family: var(--font-permanent-marker), cursive;
 }
 
 /* Navy overlay on the hero background image (components/HeroBackdrop.tsx).
