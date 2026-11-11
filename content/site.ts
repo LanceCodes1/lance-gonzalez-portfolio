@@ -169,4 +169,13 @@ export const site = {
       "Computer Science, Cal State LA (in progress)",
     ],
   },
+
+  contact: {
+    heading: "Let's build something useful",
+    line: "If you run a small business or nonprofit and want to put AI to work, send me a message.",
+    buttons: [
+      { label: "Email me", href: email },
+      { label: "Connect on LinkedIn", href: linkedin },
+    ],
+  },
 };
