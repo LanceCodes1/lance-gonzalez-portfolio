@@ -27,6 +27,8 @@ export type Project = {
 // Dates are display text exactly as Lance wrote them, not parsed dates.
 export type TimelineItem = { date: string; event: string };
 
+export type Role = { title: string; org: string; dates: string };
+
 // Shared contact links, defined once so the hero and contact sections can't drift apart.
 const email = "mailto:gonzalezlance01@gmail.com";
 const linkedin = "https://www.linkedin.com/in/lance-o-gonzalez";
@@ -137,5 +139,34 @@ export const site = {
       { date: "Sep 2026", event: "Next Chapter, AI Builder" },
       { date: "Nov 2026", event: "AI Tech Corps (The Knowledge House x OptimaNova AI)" },
     ] satisfies TimelineItem[],
+  },
+
+  experience: {
+    heading: "Experience and credentials",
+    rolesHeading: "Experience",
+    roles: [
+      { title: "AI Builder", org: "Next Chapter", dates: "Sep – Dec 2026" },
+      { title: "Community Navigator", org: "Mass Liberation", dates: "Current" },
+      {
+        title: "California Justice Leaders Fellow",
+        org: "Impact Justice / AmeriCorps",
+        dates: "Feb – Oct 2026",
+      },
+      {
+        title: "Technical Facilitator / Teaching Assistant",
+        org: "Firme Coding",
+        dates: "Jan 2026 – present",
+      },
+      { title: "Case Manager", org: "Re-Evolution", dates: "Nov 2025 – Aug 2026" },
+    ] satisfies Role[],
+    credentialsHeading: "Credentials",
+    credentials: [
+      "The Knowledge House Innovation Fellowship, AI Business Solutions",
+      "IBM Generative AI Engineering certificate",
+      "AI Tech Corps (The Knowledge House x OptimaNova AI)",
+      "Firme Coding certifications: Logic & Critical Thinking, Intro to SwiftUI",
+      "Defy Ventures entrepreneurship program",
+      "Computer Science, Cal State LA (in progress)",
+    ],
   },
 };
