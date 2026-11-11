@@ -11,6 +11,8 @@ export type SocialLink = {
   href: string;
 };
 
+export type Service = { title: string; description: string };
+
 // Shared contact links, defined once so the hero and contact sections can't drift apart.
 const email = "mailto:gonzalezlance01@gmail.com";
 const linkedin = "https://www.linkedin.com/in/lance-o-gonzalez";
@@ -37,5 +39,26 @@ export const site = {
       { label: "Email", icon: "email", href: email },
       { label: "Instagram", icon: "instagram", href: "" },
     ] satisfies SocialLink[],
+  },
+
+  services: {
+    heading: "What I can build for you",
+    items: [
+      {
+        title: "AI automations",
+        description:
+          "I set up workflows that handle repetitive work, like answering routine requests and drafting replies, with a person approving anything that matters. For small businesses and nonprofits.",
+      },
+      {
+        title: "Websites and landing pages",
+        description:
+          "Clean, fast sites that explain what you do and make it easy for people to reach you.",
+      },
+      {
+        title: "AI workshops and training",
+        description:
+          "Plain-language sessions that get a team using AI tools safely and confidently in their own work.",
+      },
+    ] satisfies Service[],
   },
 };
